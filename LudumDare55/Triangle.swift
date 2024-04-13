@@ -12,6 +12,7 @@ struct Triangle {
 
     func isColliding(with other: Triangle) -> Bool {
         // Implement Separating Axis Theorem (SAT) for triangle-triangle collision detection
+        // using Minkowski difference
 
         func edge(a: SIMD3<Float>, b: SIMD3<Float>) -> SIMD3<Float> {
             return b - a
@@ -20,7 +21,7 @@ struct Triangle {
         func normal(edge: SIMD3<Float>) -> SIMD3<Float> {
             let lengthSquared = simd_dot(edge, edge)
             let inverseLength = simd_rsqrt(lengthSquared)
-            return simd_cross(edge, SIMD3<Float>(x: 0, y: 1, z: 0)) * inverseLength
+            return simd_normalize(edge)
         }
 
         func dot(a: SIMD3<Float>, b: SIMD3<Float>) -> Float {
@@ -59,12 +60,9 @@ struct Triangle {
             edge(a: other.positions[2], b: other.positions[0])
         ]
 
-        let normals = edges.map(normal)
-        let otherNormals = otherEdges.map(normal)
+        let normals = edges.map(normal) + otherEdges.map { normal(edge: -$0) }
 
-        let axes = normals + otherNormals
-
-        for axis in axes {
+        for axis in normals {
             let projection1 = projectTriangle(triangle: self.positions, axis: axis)
             let projection2 = projectTriangle(triangle: other.positions, axis: axis)
 
@@ -75,4 +73,5 @@ struct Triangle {
 
         return true
     }
+
 }

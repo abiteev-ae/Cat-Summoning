@@ -11,7 +11,7 @@ struct ImmersiveView: View {
 
     var body: some View {
         RealityView { content, attachments in
-            await realityKitSceneController.firstInit(&content, attachments: attachments, vacuumType: viewModel.vacuumType)
+            await realityKitSceneController.firstInit(&content, attachments: attachments, catType: viewModel.catType)
         } update: { content, attachments in
             realityKitSceneController.updateView(&content, attachments: attachments)
         } placeholder: {

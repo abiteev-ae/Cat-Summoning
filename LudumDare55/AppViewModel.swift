@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum VacuumType: String, CaseIterable, Identifiable {
+enum CatType: String, CaseIterable, Identifiable {
     case virtual = "Virtual"
     case real = "Real"
 
@@ -15,5 +15,5 @@ enum VacuumType: String, CaseIterable, Identifiable {
 }
 
 class AppViewModel: ObservableObject {
-    @Published var vacuumType: VacuumType = .virtual
+    @Published var catType: CatType = .virtual
 }

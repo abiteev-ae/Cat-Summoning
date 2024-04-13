@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct VacuumTypeSelection: View {
+struct CatTypeSelection: View {
     @ObservedObject var viewModel: AppViewModel
 
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Cat color")
+                Text("Choose your cat")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.top, 50)
 
                 // TODO: make it cat
-                Picker("Cat Color", selection: $viewModel.vacuumType) {
-                    ForEach(VacuumType.allCases, id: \.self) { type in
+                Picker("Choose your cat", selection: $viewModel.catType) {
+                    ForEach(CatType.allCases, id: \.self) { type in
                         Text(type.rawValue).tag(type)
                     }
                 }

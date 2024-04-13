@@ -14,7 +14,7 @@ import ARKit
 
 @MainActor
 protocol SceneControllerProtocol {
-    func firstInit(_ content : inout RealityViewContent, attachments: RealityViewAttachments, vacuumType: VacuumType) async
+    func firstInit(_ content : inout RealityViewContent, attachments: RealityViewAttachments, catType: CatType) async
     func updateView(_ content : inout RealityViewContent, attachments: RealityViewAttachments)
     func cleanup()
     func onTapSpatial(_ targetValue: EntityTargetValue<SpatialTapGesture.Value>)
@@ -71,7 +71,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     init() {}
 
-    public func firstInit(_ content: inout RealityViewContent, attachments: RealityViewAttachments, vacuumType: VacuumType) async {
+    public func firstInit(_ content: inout RealityViewContent, attachments: RealityViewAttachments, catType: CatType) async {
 
         RotateSystem.registerSystem()
         RotateComponent.registerComponent()
@@ -84,7 +84,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
 
         _ = content.subscribe(to: SceneEvents.Update.self, on: nil) { event in
-            self.updateFrame(event, vacuumType: vacuumType)
+            self.updateFrame(event, catType: catType)
         }
 
         _ = content.subscribe(to: CollisionEvents.Began.self, on: nil, self.onCollisionBegan)
@@ -154,7 +154,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         headContainer.name = "headContainer"
         controllerRoot.addChild(headContainer)
 
-        await setupSceneFirstTime(vacuumType: vacuumType)
+        await setupSceneFirstTime(catType: catType)
     }
 
     private func onCollisionBegan(event: CollisionEvents.Began) {
@@ -330,7 +330,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
     }
 
     // triggered on EVERY FRAME
-    public func updateFrame(_ event: SceneEvents.Update, vacuumType: VacuumType) {
+    public func updateFrame(_ event: SceneEvents.Update, catType: CatType) {
         if worldTracking.state == .running {
             // AVP position
             if let headPosition = worldTracking.queryDeviceAnchor(atTimestamp: CACurrentMediaTime()),
@@ -339,15 +339,16 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
             }
 
 
-            // TODO: may break these into separate methods later
-            if vacuumType == .virtual {
+            // TODO: add more cats
+            switch catType {
+            case .virtual:
                 // score entity will be bind to the head of the vacuum
                 if let headPartModel = headPartModel,
                    let headContainer = controllerRoot.findEntity(named: "headContainer") {
                     scoreEntity?.look(at: headPartModel.position, from: headContainer.position, relativeTo: controllerRoot)
                     scoreEntity?.position = headPartModel.position + .init(x: 0.0, y: 0.3, z: 0.0)
                 }
-            } else {
+            case .real:
                 // score entity will be bind to the AVP pos
                 // IRL vacuum handles that mask a portion of your hand makes tracking the hand erratic
                 // hence, binding the score to the AVP instead of our hidden vacuum head
@@ -361,6 +362,9 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                     let lookAtPoint = headContainer.position + (headContainer.orientation.act(offsetPosition))
                     scoreEntity?.look(at: lookAtPoint, from: newPosition, relativeTo: nil) // nil for world-relative positioning
                 }
+
+            default:
+                print("yo nigga ass bitch")
             }
         }
 
@@ -511,9 +515,9 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
     }
 
-    func setupSceneFirstTime(vacuumType: VacuumType) async {
+    func setupSceneFirstTime(catType: CatType) async {
 
-        print("Virtual Vacuum toggle: \(vacuumType)")
+        print("Virtual Vacuum toggle: \(catType)")
 
         if let scene = try? await Entity(named: "SharedAssets", in: realityKitContentBundle) {
             if let coin = scene.findEntity(named: "coin") {
@@ -527,7 +531,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
             }
         }
         // different assets and mesh collision
-        await (vacuumType == .virtual ? useVirtualVacuum() : useRealVacuum())
+        await (catType == .virtual ? useVirtualVacuum() : useRealVacuum())
 
         coinSound = try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle)
     }

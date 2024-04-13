@@ -22,12 +22,12 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CenteredTitle("I LOVE CATS")
+                CenteredTitle("Summon a Cat!")
                     .padding(.vertical, 10)
                 Spacer()
 
                 VStack {
-                     VacuumTypeSelection(viewModel: viewModel)
+                     CatTypeSelection(viewModel: viewModel)
                      PlayButton(showImmersiveSpace: $showImmersiveSpace)
                      AboutButton {
                          isShowingAboutView = true

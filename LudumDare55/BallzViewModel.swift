@@ -1,7 +1,7 @@
 import Foundation
 import RealityKit
 
-class BallViewModel {
+class BallzViewModel {
     private var contentEntity = Entity()
     private let colors: [PhysicallyBasedMaterial.Color] = [
         .gray, .orange, .yellow, .red, .blue, .purple, .brown, .blue, .cyan, .magenta, .white

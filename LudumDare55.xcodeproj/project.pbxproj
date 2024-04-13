@@ -14,7 +14,7 @@
 		3B3219692BCA6E2500B66D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3219682BCA6E2500B66D38 /* Assets.xcassets */; };
 		3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */; };
 		3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC06E2BCA98C300033866 /* CounterModel.swift */; };
-		3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* BallViewModel.swift */; };
+		3BCBC0712BCA993300033866 /* BallzViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* BallzViewModel.swift */; };
 		3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */; };
 		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
 		3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */; };
@@ -40,7 +40,7 @@
 		3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B32196D2BCA6E2500B66D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BCBC06E2BCA98C300033866 /* CounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
-		3BCBC0702BCA993300033866 /* BallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewModel.swift; sourceTree = "<group>"; };
+		3BCBC0702BCA993300033866 /* BallzViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallzViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallImersiveView.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				3B32196D2BCA6E2500B66D38 /* Info.plist */,
 				3B32196A2BCA6E2500B66D38 /* Preview Content */,
 				3BCBC06E2BCA98C300033866 /* CounterModel.swift */,
-				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
+				3BCBC0702BCA993300033866 /* BallzViewModel.swift */,
 				77CE9F502BCA95E900421A92 /* AppViewModel.swift */,
 				77CE9F622BCA9D3C00421A92 /* RotateComponent.swift */,
 				77CE9F642BCA9D6F00421A92 /* RotateSystem.swift */,
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */,
+				3BCBC0712BCA993300033866 /* BallzViewModel.swift in Sources */,
 				3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */,
 				3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */,
 				3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */,

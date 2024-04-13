@@ -8,12 +8,11 @@
 import Foundation
 
 enum CatType: String, CaseIterable, Identifiable {
-    case virtual = "Virtual"
-    case real = "Real"
+    case defaultCat = "default"
 
     var id: String { self.rawValue }
 }
 
 class AppViewModel: ObservableObject {
-    @Published var catType: CatType = .virtual
+    @Published var catType: CatType = .defaultCat
 }

@@ -338,33 +338,20 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                 headContainer.transform = Transform(matrix: headPosition.originFromAnchorTransform)
             }
 
+            if let headPartModel = headPartModel,
+               let headContainer = controllerRoot.findEntity(named: "headContainer") {
+                scoreEntity?.look(at: headPartModel.position, from: headContainer.position, relativeTo: controllerRoot)
+                scoreEntity?.position = headPartModel.position + .init(x: 0.0, y: 0.3, z: 0.0)
 
-            // TODO: add more cats
-            switch catType {
-            case .virtual:
-                // score entity will be bind to the head of the vacuum
-                if let headPartModel = headPartModel,
-                   let headContainer = controllerRoot.findEntity(named: "headContainer") {
-                    scoreEntity?.look(at: headPartModel.position, from: headContainer.position, relativeTo: controllerRoot)
-                    scoreEntity?.position = headPartModel.position + .init(x: 0.0, y: 0.3, z: 0.0)
+
+                // TODO: move out of this method to cat creation method
+                switch catType {
+                case .defaultCat:
+                    // score entity will be bind to the head of the vacuum
+                    print("i dont give a fuck")
+                default:
+                    print("yo nigga ass bitch")
                 }
-            case .real:
-                // score entity will be bind to the AVP pos
-                // IRL vacuum handles that mask a portion of your hand makes tracking the hand erratic
-                // hence, binding the score to the AVP instead of our hidden vacuum head
-                if let headContainer = controllerRoot.findEntity(named: "headContainer") {
-                    let offsetPosition = SIMD3<Float>(0.0, 0.16, -1.0)
-
-                    let newPosition = headContainer.position + (headContainer.orientation.act(offsetPosition))
-                    scoreEntity?.position = newPosition
-                    scoreEntity?.orientation = headContainer.orientation
-
-                    let lookAtPoint = headContainer.position + (headContainer.orientation.act(offsetPosition))
-                    scoreEntity?.look(at: lookAtPoint, from: newPosition, relativeTo: nil) // nil for world-relative positioning
-                }
-
-            default:
-                print("yo nigga ass bitch")
             }
         }
 
@@ -487,34 +474,6 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
     }
 
-
-    private func useRealVacuum() async {
-        print("Loaded real vacuum assets")
-
-        if let scene = try? await Entity(named: "RealVacuumAssets", in: realityKitContentBundle) {
-
-            if let handlePart = scene.findEntity(named: "handlePart") {
-                handlePart.components[CollisionComponent.self]?.filter.mask = coinCollisionGroup
-                handlePart.components[CollisionComponent.self]?.filter.group = vacuumCollisionGroup
-
-                handlePartModel = handlePart
-                controllerRoot.addChild(handlePart)
-
-                if let connector = handlePart.findEntity(named: "connector") {
-                    headConnector = connector
-                }
-            }
-
-            if let headPart = scene.findEntity(named: "headPart") {
-                headPart.components[CollisionComponent.self]?.filter.mask = coinCollisionGroup
-                headPart.components[CollisionComponent.self]?.filter.group = vacuumCollisionGroup
-
-                headPartModel = headPart
-                controllerRoot.addChild(headPart)
-            }
-        }
-    }
-
     func setupSceneFirstTime(catType: CatType) async {
 
         print("Virtual Vacuum toggle: \(catType)")
@@ -531,8 +490,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
             }
         }
         // different assets and mesh collision
-        await (catType == .virtual ? useVirtualVacuum() : useRealVacuum())
-
+        await useVirtualVacuum()
         coinSound = try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle)
     }
 }

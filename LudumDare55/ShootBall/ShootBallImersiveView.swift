@@ -10,7 +10,7 @@ struct ShootBallImmersiveView: View {
         @EnvironmentObject private var counter: CounterModel
     
         // ViewModel instance to handle business logic
-        private var model = BallViewModel()
+        private var model = BallzViewModel()
     
         // MARK: - Body
     

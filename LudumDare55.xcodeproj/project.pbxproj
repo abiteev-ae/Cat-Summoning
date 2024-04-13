@@ -98,8 +98,6 @@
 				3B3219682BCA6E2500B66D38 /* Assets.xcassets */,
 				3B32196D2BCA6E2500B66D38 /* Info.plist */,
 				3B32196A2BCA6E2500B66D38 /* Preview Content */,
-				3BCBC06E2BCA98C300033866 /* CounterModel.swift */,
-				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
 				77CE9F502BCA95E900421A92 /* AppViewModel.swift */,
 				77CE9F622BCA9D3C00421A92 /* RotateComponent.swift */,
 				77CE9F642BCA9D6F00421A92 /* RotateSystem.swift */,
@@ -126,9 +124,11 @@
 		3BCBC0782BCABA1500033866 /* ShootBall */ = {
 			isa = PBXGroup;
 			children = (
+				3BCBC06E2BCA98C300033866 /* CounterModel.swift */,
 				3B3219642BCA6E2400B66D38 /* ShootBallView.swift */,
 				3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */,
 				3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */,
+				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
 			);
 			path = ShootBall;
 			sourceTree = "<group>";

@@ -22,9 +22,7 @@ struct AboutView: View {
                 I hope you like cats. If you not, close the app immediately!
                 """)
                 .accentColor(.cyan)
-
-                Spacer()
-                Spacer()
+                .padding(.bottom, 10)
 
                 Text("Contributions")
                     .font(.title3)
@@ -35,9 +33,7 @@ struct AboutView: View {
                 Alice The Cat
                 """)
                 .accentColor(.cyan)
-
-                Spacer()
-                Spacer()
+                .padding(.bottom, 10)
 
                 Text("Credits")
                     .font(.title3)
@@ -47,9 +43,8 @@ struct AboutView: View {
                 - LUDUM DARE 55 orgs are good people
                 """)
                 .accentColor(.cyan)
+                .padding(.bottom, 10)
 
-                Spacer()
-                Spacer()
 
                 Text("Privacy Policy")
                     .font(.title3)
@@ -57,21 +52,19 @@ struct AboutView: View {
                 - N/A
                     - App does not collect any information. Have Fun!
                 """)
-            }
-            .padding(.bottom, 26)
-
-            Text("FAQ")
-                .font(.title)
-
-//            Faq()
-                .frame(height: 600)
-
-            Text("✌️")
-                .font(.title)
                 .padding(.bottom, 10)
 
+                Text("✌️✌️✌️")
+                    .font(.title)
+                    .padding(.bottom, 10)
+            }
+            .padding(.bottom, 10)
+
+
+                .frame(height: 600)
+
+
         }
-        .padding(.horizontal, 40)
     }
 }
 

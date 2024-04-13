@@ -22,7 +22,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CenteredTitle("Spatial Vacuum")
+                CenteredTitle("I LOVE CATS")
                     .padding(.vertical, 10)
                 Spacer()
 

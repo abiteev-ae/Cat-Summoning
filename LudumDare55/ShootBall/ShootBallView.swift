@@ -1,20 +1,14 @@
-//
-//  ContentView.swift
-//  Immersive Ball Shooter
-//
-//  Created by Henry Lam on 29/2/2024.
-//
 import SwiftUI
 
 struct ShootBallView: View {
     
     @State private var viewModel = ViewModel()
-
+    
     // Environment object to access shagreen data
     @EnvironmentObject var counter: CounterModel
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
-
+    
     init(_ viewModel: ViewModel) {
         self.viewModel = viewModel
     }
@@ -42,7 +36,7 @@ struct ShootBallView: View {
             // Handle changes in immersive space visibility
             Task {
                 if newValue {
-                    await openImmersiveSpace(id: "ShootBallImmersiveSpace")
+                    await openImmersiveSpace(id: "ImmersiveSpace")
                 } else {
                     await dismissImmersiveSpace()
                 }
@@ -193,7 +187,7 @@ struct ShootBallView: View {
         // Toggle immersive space visibility
         Task {
             if viewModel.showImmersiveSpace {
-                await openImmersiveSpace(id: "ShootBallImmersiveSpace")
+                await openImmersiveSpace(id: "ImmersiveSpace")
             } else {
                 await dismissImmersiveSpace()
             }

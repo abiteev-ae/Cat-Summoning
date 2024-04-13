@@ -9,13 +9,16 @@ import SwiftUI
 
 @main
 struct LudumDare55App: App {
+    @StateObject private var viewModel = AppViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
+                .frame(minWidth: 640, minHeight: 500)
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+            ImmersiveView(viewModel: viewModel)
         }
     }
 }

@@ -42,7 +42,7 @@ struct ShootBallView: View {
             // Handle changes in immersive space visibility
             Task {
                 if newValue {
-                    await openImmersiveSpace(id: "ImmersiveSpace")
+                    await openImmersiveSpace(id: "ShootBallImmersiveSpace")
                 } else {
                     await dismissImmersiveSpace()
                 }
@@ -193,7 +193,7 @@ struct ShootBallView: View {
         // Toggle immersive space visibility
         Task {
             if viewModel.showImmersiveSpace {
-                await openImmersiveSpace(id: "ImmersiveSpace")
+                await openImmersiveSpace(id: "ShootBallImmersiveSpace")
             } else {
                 await dismissImmersiveSpace()
             }

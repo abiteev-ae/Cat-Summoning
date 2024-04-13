@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		3B3219612BCA6E2400B66D38 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 3B3219602BCA6E2400B66D38 /* RealityKitContent */; };
 		3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219622BCA6E2400B66D38 /* LudumDare55App.swift */; };
-		3B3219652BCA6E2400B66D38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219642BCA6E2400B66D38 /* ContentView.swift */; };
+		3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219642BCA6E2400B66D38 /* ShootBallView.swift */; };
 		3B3219672BCA6E2400B66D38 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219662BCA6E2400B66D38 /* ImmersiveView.swift */; };
 		3B3219692BCA6E2500B66D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3219682BCA6E2500B66D38 /* Assets.xcassets */; };
 		3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */; };
+		3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC06E2BCA98C300033866 /* CounterModel.swift */; };
+		3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* BallViewModel.swift */; };
+		3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B32195B2BCA6E2400B66D38 /* LudumDare55.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LudumDare55.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B32195F2BCA6E2400B66D38 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		3B3219622BCA6E2400B66D38 /* LudumDare55App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudumDare55App.swift; sourceTree = "<group>"; };
-		3B3219642BCA6E2400B66D38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B3219642BCA6E2400B66D38 /* ShootBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallView.swift; sourceTree = "<group>"; };
 		3B3219662BCA6E2400B66D38 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		3B3219682BCA6E2500B66D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B32196D2BCA6E2500B66D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BCBC06E2BCA98C300033866 /* CounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
+		3BCBC0702BCA993300033866 /* BallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewModel.swift; sourceTree = "<group>"; };
+		3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				3B3219622BCA6E2400B66D38 /* LudumDare55App.swift */,
-				3B3219642BCA6E2400B66D38 /* ContentView.swift */,
+				3B3219642BCA6E2400B66D38 /* ShootBallView.swift */,
+				3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */,
 				3B3219662BCA6E2400B66D38 /* ImmersiveView.swift */,
 				3B3219682BCA6E2500B66D38 /* Assets.xcassets */,
 				3B32196D2BCA6E2500B66D38 /* Info.plist */,
 				3B32196A2BCA6E2500B66D38 /* Preview Content */,
+				3BCBC06E2BCA98C300033866 /* CounterModel.swift */,
+				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
 			);
 			path = LudumDare55;
 			sourceTree = "<group>";
@@ -157,8 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B3219652BCA6E2400B66D38 /* ContentView.swift in Sources */,
+				3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */,
+				3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */,
+				3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */,
 				3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */,
+				3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */,
 				3B3219672BCA6E2400B66D38 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

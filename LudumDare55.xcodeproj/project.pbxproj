@@ -16,6 +16,17 @@
 		3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC06E2BCA98C300033866 /* CounterModel.swift */; };
 		3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* BallViewModel.swift */; };
 		3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */; };
+		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
+		77CE9F4F2BCA95B000421A92 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F4E2BCA95B000421A92 /* HomeView.swift */; };
+		77CE9F512BCA95E900421A92 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F502BCA95E900421A92 /* AppViewModel.swift */; };
+		77CE9F562BCA966000421A92 /* CenteredTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F552BCA966000421A92 /* CenteredTitle.swift */; };
+		77CE9F582BCA968300421A92 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F572BCA968300421A92 /* PlayButton.swift */; };
+		77CE9F5A2BCA96B900421A92 /* AboutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F592BCA96B900421A92 /* AboutButton.swift */; };
+		77CE9F5C2BCA970A00421A92 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F5B2BCA970A00421A92 /* AboutView.swift */; };
+		77CE9F5E2BCA99BF00421A92 /* CatSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F5D2BCA99BF00421A92 /* CatSelector.swift */; };
+		77CE9F612BCA9D0900421A92 /* ThingRealityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F602BCA9D0900421A92 /* ThingRealityController.swift */; };
+		77CE9F632BCA9D3C00421A92 /* RotateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F622BCA9D3C00421A92 /* RotateComponent.swift */; };
+		77CE9F652BCA9D6F00421A92 /* RotateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F642BCA9D6F00421A92 /* RotateSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +41,17 @@
 		3BCBC06E2BCA98C300033866 /* CounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
 		3BCBC0702BCA993300033866 /* BallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallViewModel.swift; sourceTree = "<group>"; };
+		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		77CE9F4E2BCA95B000421A92 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		77CE9F502BCA95E900421A92 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		77CE9F552BCA966000421A92 /* CenteredTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredTitle.swift; sourceTree = "<group>"; };
+		77CE9F572BCA968300421A92 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		77CE9F592BCA96B900421A92 /* AboutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutButton.swift; sourceTree = "<group>"; };
+		77CE9F5B2BCA970A00421A92 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		77CE9F5D2BCA99BF00421A92 /* CatSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatSelector.swift; sourceTree = "<group>"; };
+		77CE9F602BCA9D0900421A92 /* ThingRealityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingRealityController.swift; sourceTree = "<group>"; };
+		77CE9F622BCA9D3C00421A92 /* RotateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateComponent.swift; sourceTree = "<group>"; };
+		77CE9F642BCA9D6F00421A92 /* RotateSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +86,12 @@
 		3B32195D2BCA6E2400B66D38 /* LudumDare55 */ = {
 			isa = PBXGroup;
 			children = (
+				77CE9F5F2BCA9CFC00421A92 /* Controllers */,
+				77CE9F542BCA964D00421A92 /* Components */,
+				77CE9F4D2BCA959C00421A92 /* Views */,
 				3B3219622BCA6E2400B66D38 /* LudumDare55App.swift */,
 				3B3219642BCA6E2400B66D38 /* ShootBallView.swift */,
+				3BCBC0762BCAB74F00033866 /* ContentView.swift */,
 				3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */,
 				3B3219662BCA6E2400B66D38 /* ImmersiveView.swift */,
 				3B3219682BCA6E2500B66D38 /* Assets.xcassets */,
@@ -73,6 +99,9 @@
 				3B32196A2BCA6E2500B66D38 /* Preview Content */,
 				3BCBC06E2BCA98C300033866 /* CounterModel.swift */,
 				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
+				77CE9F502BCA95E900421A92 /* AppViewModel.swift */,
+				77CE9F622BCA9D3C00421A92 /* RotateComponent.swift */,
+				77CE9F642BCA9D6F00421A92 /* RotateSystem.swift */,
 			);
 			path = LudumDare55;
 			sourceTree = "<group>";
@@ -91,6 +120,34 @@
 				3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77CE9F4D2BCA959C00421A92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77CE9F4E2BCA95B000421A92 /* HomeView.swift */,
+				77CE9F5B2BCA970A00421A92 /* AboutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		77CE9F542BCA964D00421A92 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				77CE9F552BCA966000421A92 /* CenteredTitle.swift */,
+				77CE9F572BCA968300421A92 /* PlayButton.swift */,
+				77CE9F592BCA96B900421A92 /* AboutButton.swift */,
+				77CE9F5D2BCA99BF00421A92 /* CatSelector.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		77CE9F5F2BCA9CFC00421A92 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				77CE9F602BCA9D0900421A92 /* ThingRealityController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +228,19 @@
 				3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */,
 				3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */,
 				3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */,
+				77CE9F612BCA9D0900421A92 /* ThingRealityController.swift in Sources */,
+				77CE9F512BCA95E900421A92 /* AppViewModel.swift in Sources */,
+				77CE9F582BCA968300421A92 /* PlayButton.swift in Sources */,
+				3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */,
+				3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */,
+				77CE9F5E2BCA99BF00421A92 /* CatSelector.swift in Sources */,
+				77CE9F5A2BCA96B900421A92 /* AboutButton.swift in Sources */,
+				77CE9F5C2BCA970A00421A92 /* AboutView.swift in Sources */,
+				77CE9F4F2BCA95B000421A92 /* HomeView.swift in Sources */,
+				77CE9F652BCA9D6F00421A92 /* RotateSystem.swift in Sources */,
+				3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */,
+				77CE9F562BCA966000421A92 /* CenteredTitle.swift in Sources */,
+				77CE9F632BCA9D3C00421A92 /* RotateComponent.swift in Sources */,
 				3B3219672BCA6E2400B66D38 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LudumDare55/Preview Content\"";
-				DEVELOPMENT_TEAM = RMPV57KQ7K;
+				DEVELOPMENT_TEAM = YS5J223F7K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -314,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alihan.LudumDare55;
+				PRODUCT_BUNDLE_IDENTIFIER = SAMPLEcom.alihan.LudumDare55;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -331,7 +401,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LudumDare55/Preview Content\"";
-				DEVELOPMENT_TEAM = RMPV57KQ7K;
+				DEVELOPMENT_TEAM = YS5J223F7K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -340,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alihan.LudumDare55;
+				PRODUCT_BUNDLE_IDENTIFIER = SAMPLEcom.alihan.LudumDare55;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;

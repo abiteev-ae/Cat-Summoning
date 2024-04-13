@@ -176,7 +176,6 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         let positions = readFloat3FromMTL(source: meshAnchor.geometry.vertices)
 
         var triangles: [Triangle] = []
-        let randomDistance: Float = Float.random(in: 0.1...0.5) // Set your desired range for random distance
 
         for faceId in 0 ..< meshAnchor.geometry.faces.count {
             let classId = classes[faceId]
@@ -192,26 +191,81 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                     return SIMD3<Float>(x: result4.x, y: result4.y, z: result4.z)
                 }
 
-                // Add random distance to the positions
-                let randomVector = SIMD3<Float>(x: Float.random(in: -randomDistance..<randomDistance),
-                                                y: Float.random(in: -randomDistance..<randomDistance),
-                                                z: Float.random(in: -randomDistance..<randomDistance))
+                triangles.append(.init(positions: transformed))
+            }
+        }
 
-                let updatedPositions = transformed.map { $0 + randomVector }
+        // Distance between the coins
+        let cellSize: Float = 0.4
 
-                // Check for collisions between the updated positions and existing triangles
-                let newTriangle = Triangle(positions: updatedPositions)
-                if !triangles.contains(where: { newTriangle.isColliding(with: $0) }) {
-                    triangles.append(newTriangle)
-                } else {
-                    // A collision was detected, you can handle this case as needed,
-                    // for example, by regenerating the randomVector or skipping this iteration
-                    print("collision detected")
-                    continue
-                }
+        // Go through every triangle and use the spatial DSA to mark spatial cubes from our user perspective
+        for triangle in triangles {
+            let bounds = triangleBoundingBox(of: triangle)
+
+            let gridX = Int(bounds.minX / cellSize)
+            let gridY = Int(bounds.minY / cellSize)
+            let gridZ = Int(bounds.minZ / cellSize)
+
+            let key = "\(gridX),\(gridY),\(gridZ)"
+
+            if coinsGrid[key] == nil {
+                coinsGrid[key] = true
+
+                // Y should always be in the middle of the bounding box
+                let trianglePosY = bounds.minY + (bounds.maxY - bounds.minY) / 2.0
+
+                coins[key] = SIMD3<Float>(Float(gridX) * cellSize, trianglePosY, Float(gridZ) * cellSize)
             }
         }
     }
+//    private func updateCoinGrid(meshAnchor: MeshAnchor, classes: [UInt8]) {
+//        // to ensure we have the right type of mesh
+//        guard meshAnchor.geometry.faces.primitive == .triangle,
+//              meshAnchor.geometry.vertices.format == .float3,
+//              let indexArray = getIndexArray(meshAnchor: meshAnchor) else {
+//            return
+//        }
+//
+//        // TODO: This is not optimized b/c we're reading the position twice
+//        let positions = readFloat3FromMTL(source: meshAnchor.geometry.vertices)
+//
+//        var triangles: [Triangle] = []
+//        let randomDistance: Float = Float.random(in: 0.1...0.5) // Set your desired range for random distance
+//
+//        for faceId in 0 ..< meshAnchor.geometry.faces.count {
+//            let classId = classes[faceId]
+//            if classId == 2 {
+//                let vert0: Int = Int(indexArray[faceId * 3])
+//                let vert1: Int = Int(indexArray[faceId * 3 + 1])
+//                let vert2: Int = Int(indexArray[faceId * 3 + 2])
+//
+//                let points: [SIMD3<Float>] = [positions[vert0], positions[vert1], positions[vert2]]
+//
+//                let transformed = points.map { input in
+//                    let result4: SIMD4<Float>  = meshAnchor.originFromAnchorTransform * simd_float4(input, 1.0)
+//                    return SIMD3<Float>(x: result4.x, y: result4.y, z: result4.z)
+//                }
+//
+//                // Add random distance to the positions
+//                let randomVector = SIMD3<Float>(x: Float.random(in: -randomDistance..<randomDistance),
+//                                                y: Float.random(in: -randomDistance..<randomDistance),
+//                                                z: Float.random(in: -randomDistance..<randomDistance))
+//
+//                let updatedPositions = transformed.map { $0 + randomVector }
+//
+//                // Check for collisions between the updated positions and existing triangles
+//                let newTriangle = Triangle(positions: updatedPositions)
+//                if !triangles.contains(where: { newTriangle.isColliding(with: $0) }) {
+//                    triangles.append(newTriangle)
+//                } else {
+//                    // A collision was detected, you can handle this case as needed,
+//                    // for example, by regenerating the randomVector or skipping this iteration
+//                    print("collision detected")
+//                    continue
+//                }
+//            }
+//        }
+//    }
 
 
     private func triangleBoundingBox(of triangle: Triangle) -> (minX: Float, minY: Float, minZ: Float, maxX: Float, maxY: Float, maxZ: Float){

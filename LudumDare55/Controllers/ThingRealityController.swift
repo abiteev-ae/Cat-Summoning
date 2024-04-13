@@ -479,7 +479,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         print("Virtual Vacuum toggle: \(catType)")
 
         if let scene = try? await Entity(named: "SharedAssets", in: realityKitContentBundle) {
-            if let coin = scene.findEntity(named: "coin") {
+            if let coin = scene.findEntity(named: "pallas_cat") {
                 coin.components.set(RotateComponent())
                 // will collide with...
                 coin.components[CollisionComponent.self]?.filter.mask = vacuumCollisionGroup

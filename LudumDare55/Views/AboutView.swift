@@ -11,7 +11,6 @@ struct AboutView: View {
     var body: some View {
         ScrollView {
             CenteredTitle("About")
-                .padding(.bottom, 20)
 
             Spacer()
 

@@ -1,8 +1,9 @@
 import SwiftUI
 
-@main
-struct LudumDare55App: App {
 //
+//@main
+//struct LudumDare55App: App {
+//    
 //    @StateObject var counter = CounterModel()
 //    
 //    var body: some Scene {
@@ -10,10 +11,16 @@ struct LudumDare55App: App {
 //            ShootBallView(ShootBallView.ViewModel())
 //                .environmentObject(counter)
 //        }
-//
 //        ImmersiveSpace(id: "ImmersiveSpace") {
-//            ImmersiveView()
+//            ShootBallImmersiveView()
 //                .environmentObject(counter)
+//        }
+//    }
+//}
+
+@main
+struct LudumDare55App: App {
+    
     @StateObject private var viewModel = AppViewModel()
 
     var body: some Scene {

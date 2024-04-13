@@ -52,17 +52,18 @@ extension ShootBallView {
             if readyTime > 1 {
                 readyTime -= 1
             } else {
-                state = .playing
                 showImmersiveSpace = true
+                state = .playing
                 timer.upstream.connect().cancel()
             }
         }
         
         func countDownToLose() {
-            if readyTime > 1 {
-                readyTime -= 1
+            if timeRemaining > 1 {
+                timeRemaining -= 1
             } else {
                 showImmersiveSpace = true
+                state = .lose
                 timer.upstream.connect().cancel()
             }
         }

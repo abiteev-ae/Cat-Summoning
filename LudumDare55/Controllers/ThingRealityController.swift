@@ -480,9 +480,16 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
     func setupSceneFirstTime(catType: CatType) async {
 
         print("Virtual Vacuum toggle: \(catType)")
-
-        if let scene = try? await Entity(named: "SharedAssets", in: realityKitContentBundle) {
-            if let coin = scene.findEntity(named: "pallas_cat") {
+        
+        if let entity = try? await Entity.load(named: "pallasCat.usdz", in: realityKitContentBundle) {
+            print("Found scene named: \(entity.name)")
+            print("Found scene named: \(entity.debugDescription)")
+            if let coin = entity.findEntity(named: "Mesh") {
+                print("Found cat: \(coin.name)")
+                coin.scale = SIMD3(x: 0.005, y: 0.005, z: 0.005)
+                let radians = Float.pi / 2
+                coin.transform.translation += SIMD3<Float>(0.0, 1.0, 0.0)
+                coin.orientation = simd_quatf(angle: radians, axis: SIMD3(x: 1, y: 0, z: 0))
                 coin.components.set(RotateComponent())
                 // will collide with...
                 coin.components[CollisionComponent.self]?.filter.mask = vacuumCollisionGroup

@@ -20,7 +20,7 @@ struct Triangle {
         func normal(edge: SIMD3<Float>) -> SIMD3<Float> {
             let lengthSquared = simd_dot(edge, edge)
             let inverseLength = simd_rsqrt(lengthSquared)
-            return simd_cross(edge, SIMD3<Float>(x: 0, y: 0, z: 1)) * inverseLength
+            return simd_cross(edge, SIMD3<Float>(x: 0, y: 1, z: 0)) * inverseLength
         }
 
         func dot(a: SIMD3<Float>, b: SIMD3<Float>) -> Float {

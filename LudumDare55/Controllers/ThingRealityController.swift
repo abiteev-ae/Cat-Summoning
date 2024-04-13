@@ -202,14 +202,17 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
         // Distance between the coins
         let cellSize: Float = 0.4
+        var randomiser: Float {
+            Float.random(in: 0.2...4)
+        }
 
         // Go through every triangle and use the spatial DSA to mark spatial cubes from our user perspective
         for triangle in triangles {
             let bounds = triangleBoundingBox(of: triangle)
 
-            let gridX = Int(bounds.minX / cellSize)
-            let gridY = Int(bounds.minY / cellSize)
-            let gridZ = Int(bounds.minZ / cellSize)
+            let gridX = Int(bounds.minX / randomiser)
+            let gridY = Int(bounds.minY / randomiser)
+            let gridZ = Int(bounds.minZ / 0.4)
 
             let key = "\(gridX),\(gridY),\(gridZ)"
 

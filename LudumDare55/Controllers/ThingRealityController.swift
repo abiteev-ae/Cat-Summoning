@@ -28,7 +28,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     @Published var score: Double = 0 {
         didSet {
-            if score >= 10 {
+            if score > 10 {
                 // Perform actions when the score surpasses 10
                 print("Score surpassed 10! Current score: \(score)")
                 cleanup()
@@ -90,6 +90,8 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
         content.add(controllerRoot)
 
+
+
         if let scoreAttachment = attachments.entity(for: "score") {
             scoreEntity = scoreAttachment
             controllerRoot.addChild(scoreAttachment)
@@ -137,6 +139,21 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                     meshEntities[meshAnchor.id] = entity
                     controllerRoot.addChild(entity)
 
+                    //            var counter = 0
+                    //            while score < 20 {
+//                                    DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+//                                        guard let self = self, 
+//                                                let sound = self.manulSounds[11]
+////                    else
+////                    {
+////                                            return
+////                                        }
+//                                        entity.playAudio(sound!)
+
+
+//                                    }
+                    //            }
+
                 case .updated:
                     guard let entity = meshEntities[meshAnchor.id] else { continue }
 
@@ -171,15 +188,27 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     private func onCollisionBegan(event: CollisionEvents.Began) {
         print("collision began")
+        
         //        if event.entityA.name == "pallasCat.usdz" {
         event.entityA.components[RotateComponent.self]?.isCollecting = true
         // play sound
 
+//        let sound = self.manulSounds[12]
+        //                    else
+        //                    {
+        //                                            return
+        //                                        }
+//        event.entityB.playAudio(sound!)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 120.0) {
+//            event.entityB.playAudio(sound!)
+//        }
         score += 0.5
 
         switch score {
         case 0:
-            print("no sound for you")
+            print("nothing")
+
         case 1:
             event.entityA.playAudio(manulSounds[0]!)
         case 2:
@@ -527,7 +556,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         removeAllCoins()
         removeVacuum()
         // LOOK HERE
-        mainScene = nil
+//        mainScene = nil
     }
 
     public func onTapSpatial(_ targetValue: EntityTargetValue<SpatialTapGesture.Value>) {
@@ -647,6 +676,16 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                 coin.components[CollisionComponent.self]?.filter.group = coinCollisionGroup
 
                 coinModel = coin
+
+                //            var counter = 0
+                //            while score < 20 {
+//                                DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+//                                    guard let self = self, let sound = self.manulSounds[11] else {
+//                                        return
+//                                    }
+//                                    event.entityB.playAudio(sound)
+//                                }
+                //            }
             }
         }
         // different assets and mesh collision
@@ -664,6 +703,8 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         manulSounds.append(try? await AudioFileResource.load(named: "10 манулов.mp3", in: Bundle.main))
         manulSounds.append(try? await AudioFileResource.load(named: "вы избили.mp3", in: Bundle.main))
         manulSounds.append(try? await AudioFileResource.load(named: "ты умрешь.mp3", in: Bundle.main))
+
+
 
 
 //        manulSounds.append(try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle))

@@ -89,7 +89,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
         setupTask = Task {
             do {
-                try await session.run([worldTracking, handTracking, sceneReconstruction])
+//                try await session.run([worldTracking, handTracking, sceneReconstruction])
             } catch {
                 print("Error Can't start ARKit \(error)")
             }

@@ -1,8 +1,8 @@
 import Foundation
 
-extension ShootBallView {
-    @Observable
-    class ViewModel {
+extension FoodEncounterView {
+    
+    final class ViewModel: ObservableObject {
         enum State {
             case idle
             case playing
@@ -10,14 +10,16 @@ extension ShootBallView {
             case lose
             case win
         }
-        var readyTime = 3
-        var timeRemaining = 30
-        var showImmersiveSpace = false
-    
-        private(set) var state: State = .idle
-        private(set) var timeCache = 30
+        @Published var readyTime = 3
+        @Published var timeRemaining = 30
+        @Published var showImmersiveSpace = false
+        @Published var foodCounter = 0
+        @Published var foodMax = 50
+        
+        @Published private(set) var state: State = .idle
+        @Published private(set) var timeCache = 30
 
-        @ObservationIgnored let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         
         func startGame() {
             state = .countingDown
@@ -62,7 +64,7 @@ extension ShootBallView {
             if timeRemaining > 1 {
                 timeRemaining -= 1
             } else {
-                showImmersiveSpace = true
+                showImmersiveSpace = false
                 state = .lose
                 timer.upstream.connect().cancel()
             }

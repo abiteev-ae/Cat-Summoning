@@ -28,7 +28,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     @Published var score: Double = 0 {
         didSet {
-            if score > 2 {
+            if score >= 10 {
                 // Perform actions when the score surpasses 10
                 print("Score surpassed 10! Current score: \(score)")
                 cleanup()
@@ -204,7 +204,12 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                 guard let self = self, let sound = self.manulSounds[10] else {
                     return
                 }
-                event.entityA.playAudio(sound)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [weak self] in
+                    guard let self = self, let sound = self.manulSounds[11] else {
+                        return
+                    }
+                    event.entityA.playAudio(sound)
+                }
             }
 
         default:
@@ -658,6 +663,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         manulSounds.append(try? await AudioFileResource.load(named: "9 манулов.mp3", in: Bundle.main))
         manulSounds.append(try? await AudioFileResource.load(named: "10 манулов.mp3", in: Bundle.main))
         manulSounds.append(try? await AudioFileResource.load(named: "вы избили.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "ты умрешь.mp3", in: Bundle.main))
 
 
 //        manulSounds.append(try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle))

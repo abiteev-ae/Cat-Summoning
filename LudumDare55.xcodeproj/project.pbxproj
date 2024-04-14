@@ -18,6 +18,7 @@
 		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
 		3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */; };
 		49EC49932BCBCCD0009D4D2F /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC49922BCBCCD0009D4D2F /* PortalView.swift */; };
+		49EC49952BCBE768009D4D2F /* ты умрешь.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC49942BCBE768009D4D2F /* ты умрешь.mp3 */; };
 		7733108E2BCB191000003127 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7733108D2BCB191000003127 /* Triangle.swift */; };
 		7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310902BCBC98F00003127 /* 10 манулов.mp3 */; };
 		7733109B2BCBC99000003127 /* 5 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310912BCBC98F00003127 /* 5 манулов.mp3 */; };
@@ -56,6 +57,7 @@
 		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterImersiveView.swift; sourceTree = "<group>"; };
 		49EC49922BCBCCD0009D4D2F /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
+		49EC49942BCBE768009D4D2F /* ты умрешь.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ты умрешь.mp3"; sourceTree = "<group>"; };
 		7733108D2BCB191000003127 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		773310902BCBC98F00003127 /* 10 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 манулов.mp3"; sourceTree = "<group>"; };
 		773310912BCBC98F00003127 /* 5 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "5 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/5 манулов.mp3"; sourceTree = SOURCE_ROOT; };
@@ -161,6 +163,7 @@
 		7733108F2BCBC96800003127 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				49EC49942BCBE768009D4D2F /* ты умрешь.mp3 */,
 				773310A42BCBCAD300003127 /* вы избили.mp3 */,
 				773310972BCBC99000003127 /* 1 манул.mp3 */,
 				773310962BCBC99000003127 /* 2 манула.mp3 */,
@@ -268,6 +271,7 @@
 			files = (
 				7733109E2BCBC99000003127 /* 8 манулов.mp3 in Resources */,
 				7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */,
+				49EC49952BCBE768009D4D2F /* ты умрешь.mp3 in Resources */,
 				3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */,
 				7733109F2BCBC99000003127 /* 9 манулов.mp3 in Resources */,
 				773310A32BCBC99000003127 /* 6 манулов.mp3 in Resources */,

@@ -28,9 +28,10 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     @Published var score: Double = 0 {
         didSet {
-            if score > 10 {
+            if score >= 10 {
                 // Perform actions when the score surpasses 10
                 print("Score surpassed 10! Current score: \(score)")
+                cleanup()
                 // Add any additional actions you want to perform here
             }
         }
@@ -507,6 +508,9 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
         setupTask?.cancel()
         updateTask?.cancel()
+        removeAllCoins()
+        removeVacuum()
+        // LOOK HERE
         mainScene = nil
     }
 
@@ -517,6 +521,9 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     // avoid triggering this every frame for optimization purposes
     private func updateCoins() {
+        guard score < 10 else {
+            return
+        }
         frameCounter += 1
         if frameCounter < 20 { return }
 
@@ -541,7 +548,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         coin.position = position
 
         // Create a collision shape for the coin
-        let coinShapeResource = ShapeResource.generateBox(size: simd_make_float3(0.3, 0.3, 0.3)) // Adjust the size as needed
+        let coinShapeResource = ShapeResource.generateBox(size: simd_make_float3(0.2, 0.2, 0.2)) // Adjust the size as needed
 
         let coinCollisionComponent = CollisionComponent(shapes: [coinShapeResource], mode: .default)
 
@@ -552,11 +559,29 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         coinEntities[key] = coin
     }
 
-//    deinit {
-//        continuousRotationTimer?.invalidate()
-//        continuousRotationTimer = nil
-//    }
+    private func removeAllCoins() {
+        for (_, coin) in coinEntities {
+            // Remove the coin entity from its parent
+            coin.removeFromParent()
+        }
 
+        // Clear the coinEntities dictionary
+        coinEntities.removeAll()
+    }
+
+    private func removeVacuum() {
+        handlePartModel?.removeFromParent()
+        handlePartModel = nil
+
+        headPartModel?.removeFromParent()
+        headPartModel = nil
+
+        headConnector?.removeFromParent()
+        headConnector = nil
+
+        scoreEntity?.removeFromParent()
+        scoreEntity = nil
+    }
 
     private func useVirtualVacuum() async {
         print("Loaded virtual vacuum assets")

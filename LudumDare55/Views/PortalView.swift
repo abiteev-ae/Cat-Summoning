@@ -39,9 +39,8 @@ public func makeManul() -> Entity {
     print("Found scene named: \(entity.debugDescription)")
     entity.scale = SIMD3(x: 0.015, y: 0.015, z: 0.015)
     let radians = Float.pi / 2
-    entity.transform.translation += SIMD3<Float>(0.0, 1.0, 0.0)
-    entity.orientation = simd_quatf(angle: radians, axis: SIMD3(x: 1, y: 0, z: 0))
-    entity.components.set(RotateComponent())
+    let xRotation = simd_quatf(angle: .pi * 3/2, axis: simd_float3(1, 0, 0))
+    entity.orientation = xRotation
     entity.scale = SIMD3(x: 0.05, y: 0.05, z: 0.05)
     return entity
 }

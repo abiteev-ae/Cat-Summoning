@@ -16,7 +16,7 @@
 		3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* BallViewModel.swift */; };
 		3BCBC0732BCA9D0B00033866 /* FoodEncounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */; };
 		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
-		3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */; };
+		3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */; };
 		7733108E2BCB191000003127 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7733108D2BCB191000003127 /* Triangle.swift */; };
 		7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310902BCBC98F00003127 /* 10 манулов.mp3 */; };
 		7733109B2BCBC99000003127 /* 5 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310912BCBC98F00003127 /* 5 манулов.mp3 */; };
@@ -53,7 +53,7 @@
 		3BCBC0702BCA993300033866 /* BallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallImersiveView.swift; sourceTree = "<group>"; };
+		3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterImersiveView.swift; sourceTree = "<group>"; };
 		7733108D2BCB191000003127 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		773310902BCBC98F00003127 /* 10 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 манулов.mp3"; sourceTree = "<group>"; };
 		773310912BCBC98F00003127 /* 5 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "5 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/5 манулов.mp3"; sourceTree = SOURCE_ROOT; };
@@ -150,7 +150,7 @@
 			children = (
 				3B3219642BCA6E2400B66D38 /* FoodEncounterView.swift */,
 				3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */,
-				3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */,
+				3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */,
 				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
 			);
 			path = FoodEncounter;
@@ -287,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */,
-				3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */,
+				3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */,
 				3BCBC0732BCA9D0B00033866 /* FoodEncounterViewModel.swift in Sources */,
 				3B3219652BCA6E2400B66D38 /* FoodEncounterView.swift in Sources */,
 				3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */,

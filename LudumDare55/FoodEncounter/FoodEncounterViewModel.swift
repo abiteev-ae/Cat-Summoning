@@ -15,7 +15,7 @@ extension FoodEncounterView {
         @Published var showImmersiveSpace = false
         @Published var foodCounter = 0
         @Published var foodMax = 50
-        
+        @Published var life = 5
         @Published private(set) var state: State = .idle
         @Published private(set) var timeCache = 30
 

@@ -28,7 +28,12 @@ struct FoodEncounterImmersiveView: View {
             // Add food  based on foodMax
             for index in 0..<viewModel.foodMax {
                 cubeList.append(Entity())
-                cubeList[index] = foodModel.addFood(name: "Food\(index + 1)")
+                cubeList[index] = foodModel.addBurger(name: "Potato\(index + 1)")
+            }
+            
+            for index in 0..<50 {
+                cubeList.append(Entity())
+                cubeList[index] = foodModel.addTomato(name: "Tomato\(index + 1)")
             }
         }
         // Add tap gesture to interact with entities
@@ -36,9 +41,14 @@ struct FoodEncounterImmersiveView: View {
             SpatialTapGesture()
                 .targetedToAnyEntity()
                 .onEnded { value in
-                    if foodModel.removeModel(entity: value.entity) {
+                    print(value.entity.name)
+                    if value.entity.name.hasPrefix("Object_0") {
+                        incorrect()
+                    } else {
                         correct()
                     }
+                    foodModel.removeModel(entity: value.entity)
+                    
                 }
         )
     }
@@ -48,6 +58,14 @@ struct FoodEncounterImmersiveView: View {
     // Increments the ball counter when a correct cube is removed.
     private func correct() {
         viewModel.foodCounter += 1
+    }
+    
+    private func incorrect() {
+        if viewModel.life > 1 {
+            viewModel.life -= 1
+        } else {
+            viewModel.loseGame()
+        }
     }
 }
 

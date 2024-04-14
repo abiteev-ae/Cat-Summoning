@@ -144,6 +144,9 @@ struct FoodEncounterView: View {
             Text("\(viewModel.foodCounter) of \(viewModel.foodMax) burgers !!")
                 .font(.system(size: 52))
                 .fontWeight(.semibold)
+            Text("You have \(viewModel.life) of 5 life")
+                .font(.system(size: 52))
+                .fontWeight(.semibold)
             Button("Stop") {
                 viewModel.loseGame()
             }

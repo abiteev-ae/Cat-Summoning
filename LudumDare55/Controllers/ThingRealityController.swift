@@ -28,7 +28,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     @Published var score: Double = 0 {
         didSet {
-            if score >= 10 {
+            if score > 10 {
                 // Perform actions when the score surpasses 10
                 print("Score surpassed 10! Current score: \(score)")
                 cleanup()
@@ -189,16 +189,16 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         event.entityA.components[RotateComponent.self]?.isCollecting = true
         // play sound
 
-        let sound = self.manulSounds[11]
+//        let sound = self.manulSounds[12]
         //                    else
         //                    {
         //                                            return
         //                                        }
-        event.entityB.playAudio(sound!)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 120.0) {
-            event.entityB.playAudio(sound!)
-        }
+//        event.entityB.playAudio(sound!)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 120.0) {
+//            event.entityB.playAudio(sound!)
+//        }
         score += 0.5
 
         switch score {
@@ -540,7 +540,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         removeAllCoins()
         removeVacuum()
         // LOOK HERE
-        mainScene = nil
+//        mainScene = nil
     }
 
     public func onTapSpatial(_ targetValue: EntityTargetValue<SpatialTapGesture.Value>) {

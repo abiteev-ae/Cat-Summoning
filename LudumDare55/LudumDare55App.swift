@@ -21,7 +21,7 @@ struct LudumDare55App: App {
                         let sound = Bundle.main.path(forResource: "ДИКИЕ РЫСИ - Пиздец [music]", ofType: "mp3")
                         self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
                         self.audioPlayer.numberOfLoops = -1
-                        self.audioPlayer.volume = 0.5 // Set the volume to half the maximum volume
+                        self.audioPlayer.volume = 0.3 // Set the volume to half the maximum volume
                         self.audioPlayer.play()
                     }
             }

@@ -7,6 +7,8 @@ struct LudumDare55App: App {
     @StateObject private var foodEncounterViewModel = FoodEncounterView.ViewModel()
     @StateObject private var viewModel = AppViewModel()
     
+    @State private var immersionStyle: ImmersionStyle = .mixed
+    
     var body: some Scene {
         WindowGroup {
             ScrollView {
@@ -24,6 +26,9 @@ struct LudumDare55App: App {
             FoodEncounterImmersiveView()
                 .environmentObject(foodEncounterViewModel)
         }
-        
+        ImmersiveSpace(id: "PortalSpace") {
+            PortalView()
+        }
+        .immersionStyle(selection: $immersionStyle, in: .mixed)
     }
 }

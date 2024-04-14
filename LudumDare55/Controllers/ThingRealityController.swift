@@ -28,13 +28,17 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     @Published var score: Double = 0 {
         didSet {
-            if score > 10 {
+            if score > 2 {
                 // Perform actions when the score surpasses 10
                 print("Score surpassed 10! Current score: \(score)")
                 // Add any additional actions you want to perform here
+                openPortal()
             }
         }
     }
+    
+    @Environment(\.openImmersiveSpace) private var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
 
     private var manulSounds: [AudioFileResource?] = []
 
@@ -99,7 +103,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
         setupTask = Task {
             do {
-//                try await session.run([worldTracking, handTracking, sceneReconstruction])
+                try await session.run([worldTracking, handTracking, sceneReconstruction])
             } catch {
                 print("Error Can't start ARKit \(error)")
             }
@@ -262,6 +266,13 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
                 coins[key] = SIMD3<Float>(Float(gridX) * cellSize, trianglePosY, Float(gridZ) * cellSize)
             }
+        }
+    }
+    
+    private func openPortal() {
+        Task {
+            await dismissImmersiveSpace()
+            await openImmersiveSpace(id: "PortalSpace")
         }
     }
 //    private func updateCoinGrid(meshAnchor: MeshAnchor, classes: [UInt8]) {

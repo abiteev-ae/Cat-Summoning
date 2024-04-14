@@ -14,19 +14,36 @@ struct PortalView : View {
         RealityView { content in
             let world = makeWorld()
             let portal = makePortal(world: world)
+            let manul = makeManul()
             
-            let anchor = AnchorEntity(.plane(.vertical, classification: .wall,
-                                             minimumBounds: [1, 1]))
+            let anchor = AnchorEntity(.plane(.vertical, classification: .wall, minimumBounds: [1, 1]))
             content.add(anchor)
 
+            let anchorPortal = AnchorEntity(.world(transform: portal.transform.matrix))
+            content.add(anchorPortal)
             content.add(world)
             content.add(portal)
+            content.add(manul)
             let radians = 90.0 * Float.pi / 180.0
             portal.orientation = simd_quatf(angle: radians, axis: SIMD3(x: -1, y: 0, z: 0))
             anchor.addChild(portal)
             anchor.addChild(world)
+            anchorPortal.addChild(manul)
         }
     }
+}
+
+public func makeManul() -> Entity {
+    let entity = try! Entity.load(named: "pallasCat.usdz", in: realityKitContentBundle)
+    print("Found scene named: \(entity.name)")
+    print("Found scene named: \(entity.debugDescription)")
+    entity.scale = SIMD3(x: 0.015, y: 0.015, z: 0.015)
+    let radians = Float.pi / 2
+    entity.transform.translation += SIMD3<Float>(0.0, 1.0, 0.0)
+    entity.orientation = simd_quatf(angle: radians, axis: SIMD3(x: 1, y: 0, z: 0))
+    entity.components.set(RotateComponent())
+    entity.scale = SIMD3(x: 0.05, y: 0.05, z: 0.05)
+    return entity
 }
 
 public func makeWorld() -> Entity {

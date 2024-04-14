@@ -19,7 +19,8 @@ struct ImmersiveView: View {
         } attachments: {
             let _ = print("--attachments")
             Attachment(id: "score") {
-                Text("\(realityKitSceneController.score)")
+                let goodScore = forTrailingZero(realityKitSceneController.score)
+                Text("\(goodScore)")
                     .font(.system(size: 100))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
@@ -37,5 +38,10 @@ struct ImmersiveView: View {
         .onDisappear {
             realityKitSceneController.cleanup()
         }
+    }
+
+    func forTrailingZero(_ temp: Double) -> String {
+        var tempVar = String(format: "%g", temp)
+        return tempVar
     }
 }

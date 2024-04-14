@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import SpriteKit
 import Combine
 import ARKit
+import simd
 
 @MainActor
 protocol SceneControllerProtocol {
@@ -24,9 +26,17 @@ protocol SceneControllerProtocol {
 @MainActor
 final class SweeperRealityController: ObservableObject, SceneControllerProtocol {
 
-    @Published var score: Int = 0
+    @Published var score: Double = 0 {
+        didSet {
+            if score > 10 {
+                // Perform actions when the score surpasses 10
+                print("Score surpassed 10! Current score: \(score)")
+                // Add any additional actions you want to perform here
+            }
+        }
+    }
 
-    private var coinSound: AudioFileResource?
+    private var manulSounds: [AudioFileResource?] = []
 
     struct CoinPlacement {
         var position: SIMD3<Float>
@@ -64,7 +74,9 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
     private var setupTask: Task<Void, Error>? = nil
     private var updateTask: Task<Void, Never>? = nil
 
-    init() {}
+    init() {
+
+    }
 
     public func firstInit(_ content: inout RealityViewContent, attachments: RealityViewAttachments, catType: CatType) async {
 
@@ -79,7 +91,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
 
         _ = content.subscribe(to: SceneEvents.Update.self, on: nil) { event in
-            self.updateFrame(event, catType: catType)
+            self.updateFrame(event)
         }
 
         _ = content.subscribe(to: CollisionEvents.Began.self, on: nil, self.onCollisionBegan)
@@ -153,16 +165,50 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
     }
 
     private func onCollisionBegan(event: CollisionEvents.Began) {
-        if event.entityA.name == "coin" {
-            event.entityA.components[RotateComponent.self]?.isCollecting = true
-            // play sound
-            if let coinSound = coinSound {
-                event.entityA.playAudio(coinSound)
+        print("collision began")
+        //        if event.entityA.name == "pallasCat.usdz" {
+        event.entityA.components[RotateComponent.self]?.isCollecting = true
+        // play sound
+
+        score += 0.5
+
+        switch score {
+        case 0:
+            print("no sound for you")
+        case 1:
+            event.entityA.playAudio(manulSounds[0]!)
+        case 2:
+            event.entityA.playAudio(manulSounds[1]!)
+        case 3:
+            event.entityA.playAudio(manulSounds[2]!)
+        case 4:
+            event.entityA.playAudio(manulSounds[3]!)
+        case 5:
+            event.entityA.playAudio(manulSounds[4]!)
+        case 6:
+            event.entityA.playAudio(manulSounds[5]!)
+        case 7:
+            event.entityA.playAudio(manulSounds[6]!)
+        case 8:
+            event.entityA.playAudio(manulSounds[7]!)
+        case 9:
+            event.entityA.playAudio(manulSounds[8]!)
+        case 10:
+            event.entityA.playAudio(manulSounds[9]!)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                guard let self = self, let sound = self.manulSounds[10] else {
+                    return
+                }
+                event.entityA.playAudio(sound)
             }
 
-            score += 1
+        default:
+            print("no sound for you")
+
         }
     }
+
+//    }
 
     private func updateCoinGrid(meshAnchor: MeshAnchor, classes: [UInt8]) {
         // to ensure we have the right type of mesh
@@ -196,7 +242,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
 
         // Distance between the coins
-        let cellSize: Float = 0.4
+        let cellSize: Float = 2
 
         // Go through every triangle and use the spatial DSA to mark spatial cubes from our user perspective
         for triangle in triangles {
@@ -374,7 +420,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
     }
 
     // triggered on EVERY FRAME
-    public func updateFrame(_ event: SceneEvents.Update, catType: CatType) {
+    public func updateFrame(_ event: SceneEvents.Update) {
         if worldTracking.state == .running {
             // AVP position
             if let headPosition = worldTracking.queryDeviceAnchor(atTimestamp: CACurrentMediaTime()),
@@ -389,13 +435,15 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
 
                 // TODO: move out of this method to cat creation method
-                switch catType {
-                case .defaultCat:
-                    // score entity will be bind to the head of the vacuum
-                    print("i dont give a fuck")
-                default:
-                    print("yo nigga ass bitch")
-                }
+//                switch catType {
+//                case .defaultCat:
+//                    // score entity will be bind to the head of the vacuum
+//                    DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 3) {
+//                        print("i dont give a fuck")
+//                    }
+//                default:
+//                    print("yo nigga ass bitch")
+//                }
             }
         }
 
@@ -477,18 +525,38 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
     }
 
+//    private var continuousRotationTimer: Timer?
+
+
     private func addCoin(key: String, position: SIMD3<Float>) {
         guard coinEntities[key] == nil,
               let coin = coinModel?.clone(recursive: true) else {
             return
         }
 
-        coin.orientation = .init(angle: .random(in: 0 ... 1), axis: .init(x: 0.0, y: 1.0, z: 0.0))
+        // Rotate the coin 90 degrees around the x-axis
+        let xRotation = simd_quatf(angle: .pi * 3/2, axis: simd_float3(1, 0, 0))
+        coin.orientation = xRotation
+
         coin.position = position
+
+        // Create a collision shape for the coin
+        let coinShapeResource = ShapeResource.generateBox(size: simd_make_float3(0.3, 0.3, 0.3)) // Adjust the size as needed
+
+        let coinCollisionComponent = CollisionComponent(shapes: [coinShapeResource], mode: .default)
+
+        // Attach the collision component to the coin
+        coin.components.set(coinCollisionComponent)
+
         controllerRoot.addChild(coin)
         coinEntities[key] = coin
-
     }
+
+//    deinit {
+//        continuousRotationTimer?.invalidate()
+//        continuousRotationTimer = nil
+//    }
+
 
     private func useVirtualVacuum() async {
         print("Loaded virtual vacuum assets")
@@ -527,7 +595,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
             print("Found scene named: \(entity.debugDescription)")
             if let coin = entity.findEntity(named: "Mesh") {
                 print("Found cat: \(coin.name)")
-                coin.scale = SIMD3(x: 0.005, y: 0.005, z: 0.005)
+                coin.scale = SIMD3(x: 0.015, y: 0.015, z: 0.015)
                 let radians = Float.pi / 2
                 coin.transform.translation += SIMD3<Float>(0.0, 1.0, 0.0)
                 coin.orientation = simd_quatf(angle: radians, axis: SIMD3(x: 1, y: 0, z: 0))
@@ -542,7 +610,22 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
         // different assets and mesh collision
         await useVirtualVacuum()
-        coinSound = try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle)
+
+        manulSounds.append(try? await AudioFileResource.load(named: "1 манул.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "2 манула.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "3 манула.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "4 манула.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "5 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "6 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "7 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "8 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "9 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "10 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "вы избили.mp3", in: Bundle.main))
+
+
+//        manulSounds.append(try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle))
+
     }
 }
 

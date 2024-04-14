@@ -23,7 +23,7 @@ class RotateSystem: System {
             if var component = result.components[RotateComponent.self] {
                 let speedMultiplier: Float = component.isCollecting ? 10.0 : 1.0
 
-                result.orientation = result.orientation * simd_quatf(angle: speedMultiplier * Float(context.deltaTime), axis: .init(x: 0.0, y: 1.0, z: 0.0))
+                result.orientation = result.orientation * simd_quatf(angle: speedMultiplier * Float(context.deltaTime), axis: .init(x: 0.0, y: 0.0, z: 1.0))
 
                 if component.isCollecting {
                     let progress = component.animationProgress + (1.0 - component.animationProgress) * 0.1
@@ -32,7 +32,7 @@ class RotateSystem: System {
                     result.components.set(OpacityComponent(opacity: 1.0 - progress))
 
                     if component.startPositionY == nil {
-                        // to avoid colliding with the same object multiple times
+                        // to avoid colliding with the same obj multiple times
                         result.components.remove(CollisionComponent.self)
                         component.startPositionY = result.position.y
                         component.endPositionY = result.position.y + 0.2
@@ -45,7 +45,6 @@ class RotateSystem: System {
 
                     result.components.set(component)
 
-                    // TODO: add something interesting here
                     // close to being over
                     if progress > 0.999999999 {
 

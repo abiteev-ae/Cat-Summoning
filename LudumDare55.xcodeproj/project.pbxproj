@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		3B3219612BCA6E2400B66D38 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 3B3219602BCA6E2400B66D38 /* RealityKitContent */; };
 		3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219622BCA6E2400B66D38 /* LudumDare55App.swift */; };
-		3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219642BCA6E2400B66D38 /* ShootBallView.swift */; };
+		3B3219652BCA6E2400B66D38 /* FoodEncounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219642BCA6E2400B66D38 /* FoodEncounterView.swift */; };
 		3B3219672BCA6E2400B66D38 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3219662BCA6E2400B66D38 /* ImmersiveView.swift */; };
 		3B3219692BCA6E2500B66D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3219682BCA6E2500B66D38 /* Assets.xcassets */; };
 		3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */; };
-		3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC06E2BCA98C300033866 /* CounterModel.swift */; };
-		3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* BallViewModel.swift */; };
-		3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */; };
+		3BCBC0712BCA993300033866 /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0702BCA993300033866 /* FoodViewModel.swift */; };
+		3BCBC0732BCA9D0B00033866 /* FoodEncounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */; };
 		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
-		3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */; };
+		3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */; };
 		7733108E2BCB191000003127 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7733108D2BCB191000003127 /* Triangle.swift */; };
 		7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310902BCBC98F00003127 /* 10 манулов.mp3 */; };
 		7733109B2BCBC99000003127 /* 5 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310912BCBC98F00003127 /* 5 манулов.mp3 */; };
@@ -46,16 +45,15 @@
 		3B32195B2BCA6E2400B66D38 /* LudumDare55.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LudumDare55.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B32195F2BCA6E2400B66D38 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		3B3219622BCA6E2400B66D38 /* LudumDare55App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LudumDare55App.swift; sourceTree = "<group>"; };
-		3B3219642BCA6E2400B66D38 /* ShootBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallView.swift; sourceTree = "<group>"; };
+		3B3219642BCA6E2400B66D38 /* FoodEncounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterView.swift; sourceTree = "<group>"; };
 		3B3219662BCA6E2400B66D38 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		3B3219682BCA6E2500B66D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B32196B2BCA6E2500B66D38 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B32196D2BCA6E2500B66D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3BCBC06E2BCA98C300033866 /* CounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterModel.swift; sourceTree = "<group>"; };
-		3BCBC0702BCA993300033866 /* BallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewModel.swift; sourceTree = "<group>"; };
-		3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallViewModel.swift; sourceTree = "<group>"; };
+		3BCBC0702BCA993300033866 /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
+		3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallImersiveView.swift; sourceTree = "<group>"; };
+		3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterImersiveView.swift; sourceTree = "<group>"; };
 		7733108D2BCB191000003127 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		773310902BCBC98F00003127 /* 10 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 манулов.mp3"; sourceTree = "<group>"; };
 		773310912BCBC98F00003127 /* 5 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "5 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/5 манулов.mp3"; sourceTree = SOURCE_ROOT; };
@@ -112,8 +110,8 @@
 		3B32195D2BCA6E2400B66D38 /* LudumDare55 */ = {
 			isa = PBXGroup;
 			children = (
+				3BCBC0782BCABA1500033866 /* FoodEncounter */,
 				7733108F2BCBC96800003127 /* Sounds */,
-				3BCBC0782BCABA1500033866 /* ShootBall */,
 				77CE9F5F2BCA9CFC00421A92 /* Controllers */,
 				77CE9F542BCA964D00421A92 /* Components */,
 				77CE9F4D2BCA959C00421A92 /* Views */,
@@ -147,16 +145,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3BCBC0782BCABA1500033866 /* ShootBall */ = {
+		3BCBC0782BCABA1500033866 /* FoodEncounter */ = {
 			isa = PBXGroup;
 			children = (
-				3BCBC06E2BCA98C300033866 /* CounterModel.swift */,
-				3B3219642BCA6E2400B66D38 /* ShootBallView.swift */,
-				3BCBC0722BCA9D0B00033866 /* ShootBallViewModel.swift */,
-				3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */,
-				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
+				3B3219642BCA6E2400B66D38 /* FoodEncounterView.swift */,
+				3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */,
+				3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */,
+				3BCBC0702BCA993300033866 /* FoodViewModel.swift */,
 			);
-			path = ShootBall;
+			path = FoodEncounter;
 			sourceTree = "<group>";
 		};
 		7733108F2BCBC96800003127 /* Sounds */ = {
@@ -289,17 +286,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BCBC0712BCA993300033866 /* BallViewModel.swift in Sources */,
-				3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */,
-				3BCBC0732BCA9D0B00033866 /* ShootBallViewModel.swift in Sources */,
-				3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */,
+				3BCBC0712BCA993300033866 /* FoodViewModel.swift in Sources */,
+				3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */,
+				3BCBC0732BCA9D0B00033866 /* FoodEncounterViewModel.swift in Sources */,
+				3B3219652BCA6E2400B66D38 /* FoodEncounterView.swift in Sources */,
 				3B3219632BCA6E2400B66D38 /* LudumDare55App.swift in Sources */,
-				3BCBC06F2BCA98C300033866 /* CounterModel.swift in Sources */,
 				77CE9F612BCA9D0900421A92 /* ThingRealityController.swift in Sources */,
 				77CE9F512BCA95E900421A92 /* AppViewModel.swift in Sources */,
 				77CE9F582BCA968300421A92 /* PlayButton.swift in Sources */,
 				3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */,
-				3B3219652BCA6E2400B66D38 /* ShootBallView.swift in Sources */,
+				3B3219652BCA6E2400B66D38 /* FoodEncounterView.swift in Sources */,
 				77CE9F5E2BCA99BF00421A92 /* CatSelector.swift in Sources */,
 				77CE9F5A2BCA96B900421A92 /* AboutButton.swift in Sources */,
 				77CE9F5C2BCA970A00421A92 /* AboutView.swift in Sources */,

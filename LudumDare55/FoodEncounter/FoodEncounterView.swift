@@ -1,17 +1,13 @@
 import SwiftUI
 
-struct ShootBallView: View {
+struct FoodEncounterView: View {
     
-    @State private var viewModel = ViewModel()
-    
+
     // Environment object to access shagreen data
-    @EnvironmentObject var counter: CounterModel
+    @EnvironmentObject var viewModel: ViewModel
+    
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
-    
-    init(_ viewModel: ViewModel) {
-        self.viewModel = viewModel
-    }
     
     var body: some View {
         NavigationStack {
@@ -36,7 +32,7 @@ struct ShootBallView: View {
             // Handle changes in immersive space visibility
             Task {
                 if newValue {
-                    await openImmersiveSpace(id: "ImmersiveSpace")
+                    await openImmersiveSpace(id: "ShootBallImmersiveSpace")
                 } else {
                     await dismissImmersiveSpace()
                 }
@@ -49,16 +45,16 @@ struct ShootBallView: View {
     private func gameOverView() -> some View {
         // View displayed when the game is lost
         VStack {
-            Text("You Lost!")
+            Text("You Died! Manul Ate you!")
                 .font(.system(size: 45))
                 .fontWeight(.bold)
             Spacer(minLength: 20)
-            Text("You shot \(counter.ballCounter)/\(counter.ballMax) green balls in \(viewModel.timeCache)s.")
+            Text("You have fed manul with \(viewModel.foodCounter)/\(viewModel.foodMax) burgers in \(viewModel.timeCache)s.")
                 .font(.system(size: 64))
                 .fontWeight(.bold)
             Spacer(minLength: 20)
             Button("Try Again!") {
-                counter.ballCounter = 0
+                viewModel.foodCounter = 0
                 viewModel.resetGame()
             }
             .toggleStyle(.button)
@@ -78,11 +74,12 @@ struct ShootBallView: View {
             Text("Congratulations!")
                 .font(.system(size: 64))
                 .fontWeight(.bold)
-            Text("You shot all \(counter.ballCounter) green balls in \(viewModel.timeCache - viewModel.timeRemaining)s!")
+            Text("You have successfully survived!")
                 .font(.system(size: 64))
                 .fontWeight(.bold)
             Spacer(minLength: 20)
             Button("Play Again!") {
+                viewModel.foodCounter = 0
                 viewModel.resetGame()
             }
             .toggleStyle(.button)
@@ -95,11 +92,9 @@ struct ShootBallView: View {
     private func gameSetupView() -> some View {
         // View for setting up the game
         VStack {
-            Text("Shoot \(counter.ballMax) green balls in \(viewModel.timeCache)s!")
+            Text("Feed manul with \(viewModel.foodMax) burgers in \(viewModel.timeCache)s!")
                 .font(.system(size: 54))
                 .fontWeight(.bold)
-            settingsView(title: "Time Setting", buttons: timeSettingButtons())
-            settingsView(title: "Green Ball Setting", buttons: greenBallSettingButtons())
             Spacer(minLength: 20)
             startGameButton()
         }
@@ -113,24 +108,6 @@ struct ShootBallView: View {
                 .padding(.top, 20)
                 .padding(.bottom, 10)
             buttons
-        }
-    }
-
-    private func timeSettingButtons() -> some View {
-        // Buttons for setting time
-        HStack {
-            Button("15s") { viewModel.setupTimer(15) }
-            Button("30s") { viewModel.setupTimer(30) }
-            Button("60s") { viewModel.setupTimer(60) }
-        }
-    }
-
-    private func greenBallSettingButtons() -> some View {
-        // Buttons for setting green ball count
-        HStack {
-            Button("10") { counter.ballMax = 10 }
-            Button("25") { counter.ballMax = 25 }
-            Button("50") { counter.ballMax = 50 }
         }
     }
 
@@ -164,17 +141,19 @@ struct ShootBallView: View {
                 .onReceive(viewModel.timer) { _ in
                     viewModel.countDownToLose()
                 }
-            Text("\(counter.ballCounter)/\(counter.ballMax) green balls shot!!")
+            Text("\(viewModel.foodCounter) of \(viewModel.foodMax) burgers !!")
                 .font(.system(size: 52))
                 .fontWeight(.semibold)
-            Button("Stop") { viewModel.loseGame() }
+            Button("Stop") {
+                viewModel.loseGame()
+            }
                 .toggleStyle(.button)
                 .font(.system(size: 30))
                 .fontWeight(.bold)
                 .frame(width: 360, height: 120)
         }
         .onReceive(viewModel.timer) { _ in
-            if counter.ballCounter >= counter.ballMax {
+            if viewModel.foodCounter >= viewModel.foodMax {
                 viewModel.winGame()
             }
         }
@@ -187,7 +166,7 @@ struct ShootBallView: View {
         // Toggle immersive space visibility
         Task {
             if viewModel.showImmersiveSpace {
-                await openImmersiveSpace(id: "ImmersiveSpace")
+                await openImmersiveSpace(id: "ShootBallImmersiveSpace")
             } else {
                 await dismissImmersiveSpace()
             }
@@ -196,5 +175,5 @@ struct ShootBallView: View {
 }
 
 #Preview {
-    ShootBallView(ShootBallView.ViewModel())
+    FoodEncounterView()
 }

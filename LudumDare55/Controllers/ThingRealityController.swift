@@ -26,9 +26,17 @@ protocol SceneControllerProtocol {
 @MainActor
 final class SweeperRealityController: ObservableObject, SceneControllerProtocol {
 
-    @Published var score: Double = 0
+    @Published var score: Double = 0 {
+        didSet {
+            if score > 10 {
+                // Perform actions when the score surpasses 10
+                print("Score surpassed 10! Current score: \(score)")
+                // Add any additional actions you want to perform here
+            }
+        }
+    }
 
-    private var coinSound: AudioFileResource?
+    private var manulSounds: [AudioFileResource?] = []
 
     struct CoinPlacement {
         var position: SIMD3<Float>
@@ -66,7 +74,9 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
     private var setupTask: Task<Void, Error>? = nil
     private var updateTask: Task<Void, Never>? = nil
 
-    init() {}
+    init() {
+
+    }
 
     public func firstInit(_ content: inout RealityViewContent, attachments: RealityViewAttachments, catType: CatType) async {
 
@@ -156,15 +166,48 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
     private func onCollisionBegan(event: CollisionEvents.Began) {
         print("collision began")
-//        if event.entityA.name == "pallasCat.usdz" {
-            event.entityA.components[RotateComponent.self]?.isCollecting = true
-            // play sound
-            if let coinSound = coinSound {
-                event.entityA.playAudio(coinSound)
-            }
+        //        if event.entityA.name == "pallasCat.usdz" {
+        event.entityA.components[RotateComponent.self]?.isCollecting = true
+        // play sound
 
         score += 0.5
+
+        switch score {
+        case 0:
+            print("no sound for you")
+        case 1:
+            event.entityA.playAudio(manulSounds[0]!)
+        case 2:
+            event.entityA.playAudio(manulSounds[1]!)
+        case 3:
+            event.entityA.playAudio(manulSounds[2]!)
+        case 4:
+            event.entityA.playAudio(manulSounds[3]!)
+        case 5:
+            event.entityA.playAudio(manulSounds[4]!)
+        case 6:
+            event.entityA.playAudio(manulSounds[5]!)
+        case 7:
+            event.entityA.playAudio(manulSounds[6]!)
+        case 8:
+            event.entityA.playAudio(manulSounds[7]!)
+        case 9:
+            event.entityA.playAudio(manulSounds[8]!)
+        case 10:
+            event.entityA.playAudio(manulSounds[9]!)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                guard let self = self, let sound = self.manulSounds[10] else {
+                    return
+                }
+                event.entityA.playAudio(sound)
+            }
+
+        default:
+            print("no sound for you")
+
         }
+    }
+
 //    }
 
     private func updateCoinGrid(meshAnchor: MeshAnchor, classes: [UInt8]) {
@@ -567,7 +610,22 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         }
         // different assets and mesh collision
         await useVirtualVacuum()
-        coinSound = try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle)
+
+        manulSounds.append(try? await AudioFileResource.load(named: "1 манул.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "2 манула.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "3 манула.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "4 манула.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "5 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "6 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "7 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "8 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "9 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "10 манулов.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "вы избили.mp3", in: Bundle.main))
+
+
+//        manulSounds.append(try? await AudioFileResource(named: "/Root/coin_collect_sound_mp3", from: "SharedAssets.usda", in: realityKitContentBundle))
+
     }
 }
 

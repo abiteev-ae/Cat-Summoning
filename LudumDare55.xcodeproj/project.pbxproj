@@ -19,6 +19,17 @@
 		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
 		3BCBC07A2BCABA8400033866 /* ShootBallImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */; };
 		7733108E2BCB191000003127 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7733108D2BCB191000003127 /* Triangle.swift */; };
+		7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310902BCBC98F00003127 /* 10 манулов.mp3 */; };
+		7733109B2BCBC99000003127 /* 5 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310912BCBC98F00003127 /* 5 манулов.mp3 */; };
+		7733109C2BCBC99000003127 /* 4 манула.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310922BCBC98F00003127 /* 4 манула.mp3 */; };
+		7733109D2BCBC99000003127 /* 7 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310932BCBC98F00003127 /* 7 манулов.mp3 */; };
+		7733109E2BCBC99000003127 /* 8 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310942BCBC98F00003127 /* 8 манулов.mp3 */; };
+		7733109F2BCBC99000003127 /* 9 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310952BCBC98F00003127 /* 9 манулов.mp3 */; };
+		773310A02BCBC99000003127 /* 2 манула.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310962BCBC99000003127 /* 2 манула.mp3 */; };
+		773310A12BCBC99000003127 /* 1 манул.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310972BCBC99000003127 /* 1 манул.mp3 */; };
+		773310A22BCBC99000003127 /* 3 манула.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310982BCBC99000003127 /* 3 манула.mp3 */; };
+		773310A32BCBC99000003127 /* 6 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310992BCBC99000003127 /* 6 манулов.mp3 */; };
+		773310A52BCBCAD300003127 /* вы избили.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310A42BCBCAD300003127 /* вы избили.mp3 */; };
 		77CE9F4F2BCA95B000421A92 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F4E2BCA95B000421A92 /* HomeView.swift */; };
 		77CE9F512BCA95E900421A92 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F502BCA95E900421A92 /* AppViewModel.swift */; };
 		77CE9F562BCA966000421A92 /* CenteredTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F552BCA966000421A92 /* CenteredTitle.swift */; };
@@ -46,6 +57,17 @@
 		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3BCBC0792BCABA8400033866 /* ShootBallImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootBallImersiveView.swift; sourceTree = "<group>"; };
 		7733108D2BCB191000003127 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		773310902BCBC98F00003127 /* 10 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 манулов.mp3"; sourceTree = "<group>"; };
+		773310912BCBC98F00003127 /* 5 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "5 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/5 манулов.mp3"; sourceTree = SOURCE_ROOT; };
+		773310922BCBC98F00003127 /* 4 манула.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "4 манула.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/4 манула.mp3"; sourceTree = SOURCE_ROOT; };
+		773310932BCBC98F00003127 /* 7 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "7 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/7 манулов.mp3"; sourceTree = SOURCE_ROOT; };
+		773310942BCBC98F00003127 /* 8 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "8 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/8 манулов.mp3"; sourceTree = SOURCE_ROOT; };
+		773310952BCBC98F00003127 /* 9 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "9 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/9 манулов.mp3"; sourceTree = SOURCE_ROOT; };
+		773310962BCBC99000003127 /* 2 манула.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "2 манула.mp3"; sourceTree = "<group>"; };
+		773310972BCBC99000003127 /* 1 манул.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "1 манул.mp3"; sourceTree = "<group>"; };
+		773310982BCBC99000003127 /* 3 манула.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "3 манула.mp3"; sourceTree = "<group>"; };
+		773310992BCBC99000003127 /* 6 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "6 манулов.mp3"; sourceTree = "<group>"; };
+		773310A42BCBCAD300003127 /* вы избили.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "вы избили.mp3"; sourceTree = "<group>"; };
 		77CE9F4E2BCA95B000421A92 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		77CE9F502BCA95E900421A92 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		77CE9F552BCA966000421A92 /* CenteredTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredTitle.swift; sourceTree = "<group>"; };
@@ -90,6 +112,7 @@
 		3B32195D2BCA6E2400B66D38 /* LudumDare55 */ = {
 			isa = PBXGroup;
 			children = (
+				7733108F2BCBC96800003127 /* Sounds */,
 				3BCBC0782BCABA1500033866 /* ShootBall */,
 				77CE9F5F2BCA9CFC00421A92 /* Controllers */,
 				77CE9F542BCA964D00421A92 /* Components */,
@@ -134,6 +157,24 @@
 				3BCBC0702BCA993300033866 /* BallViewModel.swift */,
 			);
 			path = ShootBall;
+			sourceTree = "<group>";
+		};
+		7733108F2BCBC96800003127 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				773310A42BCBCAD300003127 /* вы избили.mp3 */,
+				773310972BCBC99000003127 /* 1 манул.mp3 */,
+				773310962BCBC99000003127 /* 2 манула.mp3 */,
+				773310982BCBC99000003127 /* 3 манула.mp3 */,
+				773310922BCBC98F00003127 /* 4 манула.mp3 */,
+				773310912BCBC98F00003127 /* 5 манулов.mp3 */,
+				773310992BCBC99000003127 /* 6 манулов.mp3 */,
+				773310932BCBC98F00003127 /* 7 манулов.mp3 */,
+				773310942BCBC98F00003127 /* 8 манулов.mp3 */,
+				773310952BCBC98F00003127 /* 9 манулов.mp3 */,
+				773310902BCBC98F00003127 /* 10 манулов.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		77CE9F4D2BCA959C00421A92 /* Views */ = {
@@ -225,8 +266,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7733109E2BCBC99000003127 /* 8 манулов.mp3 in Resources */,
+				7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */,
 				3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */,
+				7733109F2BCBC99000003127 /* 9 манулов.mp3 in Resources */,
+				773310A32BCBC99000003127 /* 6 манулов.mp3 in Resources */,
+				773310A52BCBCAD300003127 /* вы избили.mp3 in Resources */,
+				773310A02BCBC99000003127 /* 2 манула.mp3 in Resources */,
+				773310A22BCBC99000003127 /* 3 манула.mp3 in Resources */,
 				3B3219692BCA6E2500B66D38 /* Assets.xcassets in Resources */,
+				7733109D2BCBC99000003127 /* 7 манулов.mp3 in Resources */,
+				7733109B2BCBC99000003127 /* 5 манулов.mp3 in Resources */,
+				7733109C2BCBC99000003127 /* 4 манула.mp3 in Resources */,
+				773310A12BCBC99000003127 /* 1 манул.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LudumDare55/Preview Content\"";
-				DEVELOPMENT_TEAM = RMPV57KQ7K;
+				DEVELOPMENT_TEAM = YS5J223F7K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -400,7 +452,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alihan.LudumDare55;
+				PRODUCT_BUNDLE_IDENTIFIER = OCHKO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -417,7 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LudumDare55/Preview Content\"";
-				DEVELOPMENT_TEAM = RMPV57KQ7K;
+				DEVELOPMENT_TEAM = YS5J223F7K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -426,7 +478,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alihan.LudumDare55;
+				PRODUCT_BUNDLE_IDENTIFIER = OCHKO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;

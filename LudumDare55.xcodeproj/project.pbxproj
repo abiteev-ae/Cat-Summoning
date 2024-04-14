@@ -17,6 +17,8 @@
 		3BCBC0732BCA9D0B00033866 /* FoodEncounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */; };
 		3BCBC0772BCAB74F00033866 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0762BCAB74F00033866 /* ContentView.swift */; };
 		3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */; };
+		49EC49932BCBCCD0009D4D2F /* PortalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EC49922BCBCCD0009D4D2F /* PortalView.swift */; };
+		49EC49952BCBE768009D4D2F /* ты умрешь.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49EC49942BCBE768009D4D2F /* ты умрешь.mp3 */; };
 		7733108E2BCB191000003127 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7733108D2BCB191000003127 /* Triangle.swift */; };
 		7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310902BCBC98F00003127 /* 10 манулов.mp3 */; };
 		7733109B2BCBC99000003127 /* 5 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310912BCBC98F00003127 /* 5 манулов.mp3 */; };
@@ -55,6 +57,8 @@
 		3BCBC0722BCA9D0B00033866 /* FoodEncounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterViewModel.swift; sourceTree = "<group>"; };
 		3BCBC0762BCAB74F00033866 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3BCBC0792BCABA8400033866 /* FoodEncounterImersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEncounterImersiveView.swift; sourceTree = "<group>"; };
+		49EC49922BCBCCD0009D4D2F /* PortalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalView.swift; sourceTree = "<group>"; };
+		49EC49942BCBE768009D4D2F /* ты умрешь.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ты умрешь.mp3"; sourceTree = "<group>"; };
 		7733108D2BCB191000003127 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		773310902BCBC98F00003127 /* 10 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10 манулов.mp3"; sourceTree = "<group>"; };
 		773310912BCBC98F00003127 /* 5 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "5 манулов.mp3"; path = "Packages/RealityKitContent/Sources/RealityKitContent/RealityKitContent.rkassets/5 манулов.mp3"; sourceTree = SOURCE_ROOT; };
@@ -161,6 +165,7 @@
 		7733108F2BCBC96800003127 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				49EC49942BCBE768009D4D2F /* ты умрешь.mp3 */,
 				773310A62BCBE31100003127 /* ДИКИЕ РЫСИ - Пиздец [music].mp3 */,
 				773310A42BCBCAD300003127 /* вы избили.mp3 */,
 				773310972BCBC99000003127 /* 1 манул.mp3 */,
@@ -182,6 +187,7 @@
 			children = (
 				77CE9F4E2BCA95B000421A92 /* HomeView.swift */,
 				77CE9F5B2BCA970A00421A92 /* AboutView.swift */,
+				49EC49922BCBCCD0009D4D2F /* PortalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			files = (
 				7733109E2BCBC99000003127 /* 8 манулов.mp3 in Resources */,
 				7733109A2BCBC99000003127 /* 10 манулов.mp3 in Resources */,
+				49EC49952BCBE768009D4D2F /* ты умрешь.mp3 in Resources */,
 				3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */,
 				7733109F2BCBC99000003127 /* 9 манулов.mp3 in Resources */,
 				773310A32BCBC99000003127 /* 6 манулов.mp3 in Resources */,
@@ -290,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EC49932BCBCCD0009D4D2F /* PortalView.swift in Sources */,
 				3BCBC0712BCA993300033866 /* FoodViewModel.swift in Sources */,
 				3BCBC07A2BCABA8400033866 /* FoodEncounterImersiveView.swift in Sources */,
 				3BCBC0732BCA9D0B00033866 /* FoodEncounterViewModel.swift in Sources */,
@@ -443,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LudumDare55/Preview Content\"";
-				DEVELOPMENT_TEAM = RMPV57KQ7K;
+				DEVELOPMENT_TEAM = X9WW9XV3G3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -452,7 +460,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alihanabiteev.ludumdare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilia.ludumdare55;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -469,7 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LudumDare55/Preview Content\"";
-				DEVELOPMENT_TEAM = RMPV57KQ7K;
+				DEVELOPMENT_TEAM = X9WW9XV3G3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -478,7 +486,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alihanabiteev.ludumdare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilia.ludumdare55;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;

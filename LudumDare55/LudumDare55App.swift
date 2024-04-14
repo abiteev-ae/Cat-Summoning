@@ -7,14 +7,11 @@ struct LudumDare55App: App {
     
     @StateObject private var foodEncounterViewModel = FoodEncounterView.ViewModel()
     @StateObject private var viewModel = AppViewModel()
+    @State private var immersionStyle: ImmersionStyle = .mixed
     @State var audioPlayer: AVAudioPlayer!
-
     var body: some Scene {
         WindowGroup {
             ScrollView {
-                FoodEncounterView()
-                    .environmentObject(foodEncounterViewModel)
-                
                 ContentView(viewModel: viewModel)
                     .frame(minWidth: 640, minHeight: 500)
                     .onAppear() {
@@ -24,6 +21,8 @@ struct LudumDare55App: App {
                         self.audioPlayer.volume = 0.3 // Set the volume to half the maximum volume
                         self.audioPlayer.play()
                     }
+                FoodEncounterView()
+                    .environmentObject(foodEncounterViewModel)
             }
         }
         ImmersiveSpace(id: "ImmersiveSpace") {
@@ -33,6 +32,9 @@ struct LudumDare55App: App {
             FoodEncounterImmersiveView()
                 .environmentObject(foodEncounterViewModel)
         }
-        
+        ImmersiveSpace(id: "PortalSpace") {
+            PortalView()
+        }
+        .immersionStyle(selection: $immersionStyle, in: .mixed)
     }
 }

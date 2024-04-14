@@ -33,9 +33,13 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                 print("Score surpassed 10! Current score: \(score)")
                 cleanup()
                 // Add any additional actions you want to perform here
+                openPortal()
             }
         }
     }
+    
+    @Environment(\.openImmersiveSpace) private var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
 
     private var manulSounds: [AudioFileResource?] = []
 
@@ -229,7 +233,12 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
                 guard let self = self, let sound = self.manulSounds[10] else {
                     return
                 }
-                event.entityA.playAudio(sound)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) { [weak self] in
+                    guard let self = self, let sound = self.manulSounds[11] else {
+                        return
+                    }
+                    event.entityA.playAudio(sound)
+                }
             }
 
         default:
@@ -292,6 +301,13 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
 
                 coins[key] = SIMD3<Float>(Float(gridX) * cellSize, trianglePosY, Float(gridZ) * cellSize)
             }
+        }
+    }
+    
+    private func openPortal() {
+        Task {
+            await dismissImmersiveSpace()
+            await openImmersiveSpace(id: "PortalSpace")
         }
     }
 //    private func updateCoinGrid(meshAnchor: MeshAnchor, classes: [UInt8]) {
@@ -686,6 +702,7 @@ final class SweeperRealityController: ObservableObject, SceneControllerProtocol 
         manulSounds.append(try? await AudioFileResource.load(named: "9 манулов.mp3", in: Bundle.main))
         manulSounds.append(try? await AudioFileResource.load(named: "10 манулов.mp3", in: Bundle.main))
         manulSounds.append(try? await AudioFileResource.load(named: "вы избили.mp3", in: Bundle.main))
+        manulSounds.append(try? await AudioFileResource.load(named: "ты умрешь.mp3", in: Bundle.main))
 
 
 

@@ -29,6 +29,7 @@
 		773310A22BCBC99000003127 /* 3 манула.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310982BCBC99000003127 /* 3 манула.mp3 */; };
 		773310A32BCBC99000003127 /* 6 манулов.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310992BCBC99000003127 /* 6 манулов.mp3 */; };
 		773310A52BCBCAD300003127 /* вы избили.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310A42BCBCAD300003127 /* вы избили.mp3 */; };
+		773310A72BCBE31100003127 /* ДИКИЕ РЫСИ - Пиздец [music].mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 773310A62BCBE31100003127 /* ДИКИЕ РЫСИ - Пиздец [music].mp3 */; };
 		77CE9F4F2BCA95B000421A92 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F4E2BCA95B000421A92 /* HomeView.swift */; };
 		77CE9F512BCA95E900421A92 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F502BCA95E900421A92 /* AppViewModel.swift */; };
 		77CE9F562BCA966000421A92 /* CenteredTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE9F552BCA966000421A92 /* CenteredTitle.swift */; };
@@ -66,6 +67,7 @@
 		773310982BCBC99000003127 /* 3 манула.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "3 манула.mp3"; sourceTree = "<group>"; };
 		773310992BCBC99000003127 /* 6 манулов.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "6 манулов.mp3"; sourceTree = "<group>"; };
 		773310A42BCBCAD300003127 /* вы избили.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "вы избили.mp3"; sourceTree = "<group>"; };
+		773310A62BCBE31100003127 /* ДИКИЕ РЫСИ - Пиздец [music].mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ДИКИЕ РЫСИ - Пиздец [music].mp3"; sourceTree = "<group>"; };
 		77CE9F4E2BCA95B000421A92 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		77CE9F502BCA95E900421A92 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		77CE9F552BCA966000421A92 /* CenteredTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredTitle.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		7733108F2BCBC96800003127 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				773310A62BCBE31100003127 /* ДИКИЕ РЫСИ - Пиздец [music].mp3 */,
 				773310A42BCBCAD300003127 /* вы избили.mp3 */,
 				773310972BCBC99000003127 /* 1 манул.mp3 */,
 				773310962BCBC99000003127 /* 2 манула.mp3 */,
@@ -268,6 +271,7 @@
 				3B32196C2BCA6E2500B66D38 /* Preview Assets.xcassets in Resources */,
 				7733109F2BCBC99000003127 /* 9 манулов.mp3 in Resources */,
 				773310A32BCBC99000003127 /* 6 манулов.mp3 in Resources */,
+				773310A72BCBE31100003127 /* ДИКИЕ РЫСИ - Пиздец [music].mp3 in Resources */,
 				773310A52BCBCAD300003127 /* вы избили.mp3 in Resources */,
 				773310A02BCBC99000003127 /* 2 манула.mp3 in Resources */,
 				773310A22BCBC99000003127 /* 3 манула.mp3 in Resources */,

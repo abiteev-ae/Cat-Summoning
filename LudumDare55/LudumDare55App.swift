@@ -12,11 +12,12 @@ struct LudumDare55App: App {
     var body: some Scene {
         WindowGroup {
             ScrollView {
+                ContentView(viewModel: viewModel)
+                    .frame(minWidth: 640, minHeight: 500)
+                
                 FoodEncounterView()
                     .environmentObject(foodEncounterViewModel)
                 
-                ContentView(viewModel: viewModel)
-                    .frame(minWidth: 640, minHeight: 500)
             }
         }
         ImmersiveSpace(id: "ImmersiveSpace") {
